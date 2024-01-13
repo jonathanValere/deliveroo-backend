@@ -1,7 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 3000;
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -12,6 +12,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ message: "Page not found 😱" });
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server starting 🚀");
 });
